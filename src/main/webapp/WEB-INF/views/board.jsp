@@ -27,7 +27,7 @@
     	
     	<div class="board-top-box">
     		<div class="board-box-inside">
-    			<div class="inside-box-left">자유게시판</div>
+    			<div class="inside-box-left">자유게시판!!!!!!!!!</div>
     			<div class="inside-box-right">
     				<input id="search-box"></input>
     		        <i class="far fa-search"></i>
