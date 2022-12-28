@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   					   http://www.springframework.org/schema/beans/spring-beans.xsd
+      				   http://mybatis.org/schema/mybatis-spring 
+      				   http://mybatis.org/schema/mybatis-spring.xsd">
+	
+	
+
+	<!-- MariaDB JDBC DataSource -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
+		<property name="url" value="jdbc:mariadb://13.124.180.211:3306/komap" />
+		<property name="username" value="komap" />
+		<property name="password" value="1a1b1c1d" />
+		<property name="validationQuery" value="select 1"/>
+	</bean>
+	
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+         <property name="dataSource" ref="dataSource" />
+         <property name="mapperLocations">
+            <list>
+               <value>classpath:com/my/komap/map/*.xml</value>
+            </list>
+         </property> 
+         
+         <property name="configLocation" value="/WEB-INF/mybatis/mybatis-config.xml" />
+         <property name="transactionFactory">
+         <bean class="org.mybatis.spring.transaction.SpringManagedTransactionFactory" />
+      <!-- <bean class="org.apache.ibatis.transaction.managed.ManagedTransactionFactory" /> -->
+         </property>
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+         <property name="dataSource" ref="dataSource" />
+    </bean>
+            
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+         <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+    
+     
+     
+     <!-- Dao 추가 -->
+	<bean id="UserDao" class="com.my.komap.dao.UserDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+    <bean id="BoardDao" class="com.my.komap.dao.BoardDao"> <!-- 컨트롤러의 @Resource(name="BoardDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+    <bean id="ReplyDao" class="com.my.komap.dao.ReplyDao"> <!-- 컨트롤러의 @Resource(name="ReplyDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>   
+    
+    <bean id="ReReplyDao" class="com.my.komap.dao.ReReplyDao"> <!-- 컨트롤러의 @Resource(name="ReReplyDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>    
+    
+    <bean id="MapInfoDao" class="com.my.komap.dao.MapInfoDao"> <!-- 컨트롤러의 @Resource(name="MapDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>      
+     
+    
+</beans>

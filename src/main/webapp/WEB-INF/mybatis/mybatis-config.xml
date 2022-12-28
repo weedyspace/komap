@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" />	
+		<setting name="aggressiveLazyLoading" value="true" />
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<setting name="useColumnLabel" value="true" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="defaultStatementTimeout" value="5000" />
+		<!--<setting name="lazyLoadingEnabled" value="true" /> -->
+		<!-- <setting name="autoMappingBehavior" value="false" /> -->
+	</settings>
+	
+
+	<!-- VO 등록 --> 
+	<typeAliases> 
+		<typeAlias alias="User" type="com.my.komap.vo.User" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
+		<typeAlias alias="Board" type="com.my.komap.vo.Board" />
+		<typeAlias alias="Reply" type="com.my.komap.vo.Reply" />
+		<typeAlias alias="ReReply" type="com.my.komap.vo.ReReply" />
+		<typeAlias alias="MapInfo" type="com.my.komap.vo.MapInfo" />
+	</typeAliases>
+	
+</configuration>
