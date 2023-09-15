@@ -1,0 +1,124 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reReply">
+	
+
+	<insert id="insertRe" parameterType="Reply">
+		INSERT INTO `reReply`
+		(reReply_idx, reReply_user_idx, reReply_writing_idx, reReply_box_content, reReply_reg_date, unix)
+		VALUES
+		(#{reReply_idx}, #{reReply_user_idx}, #{reReply_writing_idx}, #{reReply_box_content}, DATE_ADD(NOW(), INTERVAL 9 HOUR), #{unix})
+	</insert>
+	
+	
+	
+	<insert id="insertFaqRe" parameterType="Reply">
+		INSERT INTO `faqReReply`
+		(reReply_idx, reReply_user_idx, reReply_writing_idx, reReply_box_content, reReply_reg_date)
+		VALUES
+		(#{reReply_idx}, #{reReply_user_idx}, #{reReply_writing_idx}, #{reReply_box_content}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</insert>
+	
+	
+	
+	<delete id="reReplyDelete" parameterType="integer">
+		DELETE FROM `reReply`
+		WHERE reReply_idx=#{reReply_idx}
+	</delete>
+	
+	
+	
+ 	<delete id="faqReReplyDelete" parameterType="integer">
+		DELETE FROM `faqReReply`
+		WHERE reReply_idx=#{reReply_idx}
+	</delete>
+	
+	
+	
+	<delete id="reReReplyDelete" parameterType="integer">
+		DELETE FROM `reReply`
+		WHERE idx=#{idx}
+	</delete>	
+	
+	
+		<delete id="faqReReReplyDelete" parameterType="integer">
+		DELETE FROM `faqReReply`
+		WHERE idx=#{idx}
+	</delete>
+	
+	
+	
+ 	<select id="getAll" parameterType="Integer" resultType="ReReply">	
+		SELECT * FROM `reReply` 
+		JOIN `reply` 
+		ON reReply.reReply_idx = reply.reply_idx AND
+      	reReply.reReply_writing_idx = reply.reply_writing_idx
+      	JOIN `user`
+      	ON reReply.reReply_user_idx = user.user_idx
+      	WHERE reReply.reReply_writing_idx = #{board_idx}
+      	ORDER BY reReply.idx DESC;
+	</select> 
+	
+	
+	
+ 	<select id="getFaqAll" parameterType="Integer" resultType="ReReply">	
+		SELECT * FROM `faqReReply` 
+		JOIN `faqReply` 
+		ON faqReReply.reReply_idx = faqReply.reply_idx AND
+      	faqReReply.reReply_writing_idx = faqReply.reply_writing_idx
+      	JOIN `user`
+      	ON faqReReply.reReply_user_idx = user.user_idx
+      	WHERE faqReReply.reReply_writing_idx = #{board_idx}
+      	ORDER BY faqReReply.idx DESC;
+	</select>
+	
+
+
+
+	<update id="updateReReplyContent" parameterType="ReReply">
+		UPDATE `reReply`
+		SET reReply_box_content=#{reReply_box_content}
+		WHERE idx=#{idx}		
+	</update>	
+	
+	
+	
+	<update id="updateFaqReReplyContent" parameterType="ReReply">
+		UPDATE `faqReReply`
+		SET reReply_box_content=#{reReply_box_content}
+		WHERE idx=#{idx}		
+	</update>
+	
+	
+	
+	<update id="updateThumbsUp" parameterType="ReReply">
+		UPDATE `reReply`
+		SET reReply_recomm_count=#{reReply_recomm_count}
+		WHERE idx=#{idx}		
+	</update>
+	
+	
+	
+	<update id="updateFaqThumbsUp" parameterType="ReReply">
+		UPDATE `faqReReply`
+		SET reReply_recomm_count=#{reReply_recomm_count}
+		WHERE idx=#{idx}		
+	</update>
+	
+	
+	
+	<update id="updateFaqThumbsDown" parameterType="ReReply">
+		UPDATE `faqReReply`
+		SET reReply_decomm_count=#{reReply_decomm_count}
+		WHERE idx=#{idx}		
+	</update>
+	
+	
+	
+	<update id="updateThumbsDown" parameterType="ReReply">
+		UPDATE `reReply`
+		SET reReply_decomm_count=#{reReply_decomm_count}
+		WHERE idx=#{idx}		
+	</update>	
+	
+	
+</mapper>	

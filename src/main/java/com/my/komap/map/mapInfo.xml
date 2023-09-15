@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapInfo">
+
+	<insert id="insertMapInfo" parameterType="MapInfo">
+		INSERT INTO `mapInfo`
+		(id, lat, lng, address, detail_address, business_name, contact_number, email, website, instagram, bitcoin, bitcoin_cash, ethereum, cardano, decentraland, dogecoin, usdt, information, reg_date, unix)
+		VALUES
+		(#{id}, #{lat}, #{lng}, #{address}, #{detail_address}, #{business_name}, #{contact_number}, #{email}, #{website}, #{instagram}, #{bitcoin}, #{bitcoin_cash}, #{ethereum}, #{cardano}, #{decentraland}, #{dogecoin}, #{usdt}, #{information}, DATE_ADD(NOW(), INTERVAL 9 HOUR), #{unix})
+	</insert>
+	
+	
+	
+	<update id="updateMapInfo" parameterType="MapInfo">
+		UPDATE `mapInfo`
+		SET id=#{id}, lat=#{lat}, lng=#{lng}, address=#{address}, detail_address=#{detail_address}, business_name=#{business_name}, contact_number=#{contact_number}, email=#{email}, website=#{website}, instagram=#{instagram}, bitcoin=#{bitcoin}, bitcoin_cash=#{bitcoin_cash}, ethereum=#{ethereum}, cardano=#{cardano}, decentraland=#{decentraland}, dogecoin=#{dogecoin}, usdt=#{usdt}, information=#{information}, reg_date=DATE_ADD(NOW(), INTERVAL 9 HOUR), unix=#{unix}  
+		WHERE idx=#{idx}
+	</update>	
+	
+
+    <select id="getAll" resultType="MapInfo">
+	    SELECT *
+		FROM `mapInfo` 
+		<!-- JOIN `user` ON board.user_idx = user.user_idx  -->
+	</select> 
+		
+	
+</mapper>	

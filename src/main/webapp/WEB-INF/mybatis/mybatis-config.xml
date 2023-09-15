@@ -14,32 +14,14 @@
 		<!-- <setting name="autoMappingBehavior" value="false" /> -->
 	</settings>
 	
- 
+
 	<!-- VO 등록 --> 
-<<<<<<< HEAD
 	<typeAliases> 
 		<typeAlias alias="User" type="com.my.komap.vo.User" /> <!--alias="User"로 인해서 user.xml에서 resurtType=User를 쓸수있게 됨 -->
 		<typeAlias alias="Board" type="com.my.komap.vo.Board" />
 		<typeAlias alias="Reply" type="com.my.komap.vo.Reply" />
 		<typeAlias alias="ReReply" type="com.my.komap.vo.ReReply" />
 		<typeAlias alias="MapInfo" type="com.my.komap.vo.MapInfo" />
-=======
- 	<typeAliases>  
-		<typeAlias alias="PilotAccount" type="com.my.diseaseControl.vo.PilotAccount" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
-		<typeAlias alias="AdminAccount" type="com.my.diseaseControl.vo.AdminAccount" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
-		<typeAlias alias="Project" type="com.my.diseaseControl.vo.Project" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
-<!--        <typeAlias alias="ProjectInfo" type="com.my.diseaseControl.vo.ProjectInfo" />	--> 
-		<typeAlias alias="Issue" type="com.my.diseaseControl.vo.Issue" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
-		<typeAlias alias="AreaGeojson" type="com.my.diseaseControl.vo.AreaGeojson" />
-		<typeAlias alias="Confirmer" type="com.my.diseaseControl.vo.Confirmer" />
-		<typeAlias alias="GIS" type="com.my.diseaseControl.vo.GIS" />
-		<typeAlias alias="Icon" type="com.my.diseaseControl.vo.Icon" />
-		<typeAlias alias="WorkImageData" type="com.my.diseaseControl.vo.WorkImageData" />
-		<typeAlias alias="WorkTextData" type="com.my.diseaseControl.vo.WorkTextData" />
-		<typeAlias alias="Log" type="com.my.diseaseControl.vo.Log" />
-		<typeAlias alias="Message" type="com.my.diseaseControl.vo.Message" />
->>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c
 	</typeAliases>
-		
 	
-</configuration> 
+</configuration>
