@@ -1,0 +1,16 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="icon">
+
+	<select id="insertIcon" parameterType="Icon">	
+		INSERT INTO `IconTable`
+		(IconImageUrl, Explanation, AdminAccountIndex, Date)
+		VALUES
+		(#{IconImageUrl}, #{Explanation}, #{AdminAccountIndex}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</select>
+	
+	<select id="getAll" resultType="Icon">
+		SELECT *
+		FROM `IconTable`
+	</select>	
+
+</mapper>

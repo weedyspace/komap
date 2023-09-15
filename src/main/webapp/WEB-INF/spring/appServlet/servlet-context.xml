@@ -21,8 +21,16 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+<<<<<<< HEAD
 	
 	<context:component-scan base-package="com.my.komap" />  <!--컨트롤러에서 return "home"; 을 했을때 /WEB-INF/views/home.jsp가 나올 수 있는게 이 설정 덕분이다. -->
 
 	
 </beans:beans>
+=======
+	
+	<context:component-scan base-package="com.my.diseaseControl" />
+	
+	
+</beans:beans>
+>>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c

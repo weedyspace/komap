@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.my</groupId>
-	<artifactId>komap</artifactId>
-	<name>komap</name>
+	<artifactId>diseaseControl</artifactId>
+	<name>diseaseControl</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -14,7 +14,11 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
 		<!-- Spring --> 		
+=======
+		<!-- Spring -->
+>>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -32,7 +36,18 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<<<<<<< HEAD
 				
+=======
+		
+	    <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-web</artifactId>
+	        <version>${org.springframework-version}</version> <!-- 사용하는 Spring Framework 버전에 맞는 버전을 지정해야 합니다 -->
+	    </dependency>
+			
+					
+>>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -150,7 +165,11 @@
 		    <version>2.11.0</version>
 		</dependency>
 		
+<<<<<<< HEAD
 				
+=======
+		
+>>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
 		<dependency>
 		    <groupId>org.apache.commons</groupId>
@@ -192,8 +211,13 @@
 		    <groupId>javax.annotation</groupId>
 		    <artifactId>javax.annotation-api</artifactId>
 		    <version>1.3.2</version>
+<<<<<<< HEAD
 		</dependency>  
 		   
+=======
+		</dependency>
+		
+>>>>>>> 45332b549c3ad4db9c9a1e4ffd1b626cb45a2b8c
 	</dependencies>
 	
     <build>

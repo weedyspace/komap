@@ -8,12 +8,11 @@
       				   http://mybatis.org/schema/mybatis-spring 
       				   http://mybatis.org/schema/mybatis-spring.xsd">
 	
-	
 
 	<!-- MariaDB JDBC DataSource -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-		<property name="url" value="jdbc:mariadb://13.124.180.211:3306/komap" />
+		<property name="url" value="jdbc:mariadb://13.124.180.211:3306/diseaseControl" />
 		<property name="username" value="komap" />
 		<property name="password" value="1a1b1c1d" />
 		<property name="validationQuery" value="select 1"/>
@@ -24,7 +23,7 @@
          <property name="dataSource" ref="dataSource" />
          <property name="mapperLocations">
             <list>
-               <value>classpath:com/my/komap/map/*.xml</value>
+               <value>classpath:com/my/diseaseControl/map/*.xml</value>
             </list>
          </property> 
          
@@ -46,25 +45,52 @@
      
      
      <!-- Dao 추가 -->
-	<bean id="UserDao" class="com.my.komap.dao.UserDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+	<bean id="PilotAccountDao" class="com.my.diseaseControl.dao.PilotAccountDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
-    
-    <bean id="BoardDao" class="com.my.komap.dao.BoardDao"> <!-- 컨트롤러의 @Resource(name="BoardDao") -->
-       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>
-    
-    <bean id="ReplyDao" class="com.my.komap.dao.ReplyDao"> <!-- 컨트롤러의 @Resource(name="ReplyDao") -->
+     
+	<bean id="AdminAccountDao" class="com.my.diseaseControl.dao.AdminAccountDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>   
     
-    <bean id="ReReplyDao" class="com.my.komap.dao.ReReplyDao"> <!-- 컨트롤러의 @Resource(name="ReReplyDao") -->
+	<bean id="ProjectDao" class="com.my.diseaseControl.dao.ProjectDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+	<bean id="IssueDao" class="com.my.diseaseControl.dao.IssueDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>   
+    
+	<bean id="AreaGeojsonDao" class="com.my.diseaseControl.dao.AreaGeojsonDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+	<bean id="ConfirmerDao" class="com.my.diseaseControl.dao.ConfirmerDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>   
+    
+	<bean id="GISDao" class="com.my.diseaseControl.dao.GISDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>     
+    
+   	<bean id="IconDao" class="com.my.diseaseControl.dao.IconDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+   	<bean id="WorkImageDataDao" class="com.my.diseaseControl.dao.WorkImageDataDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>    
     
-    <bean id="MapInfoDao" class="com.my.komap.dao.MapInfoDao"> <!-- 컨트롤러의 @Resource(name="MapDao") -->
+   	<bean id="WorkTextDataDao" class="com.my.diseaseControl.dao.WorkTextDataDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
        	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>      
-     
+    </bean>
+    
+   	<bean id="LogDao" class="com.my.diseaseControl.dao.LogDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>     
+    
+   	<bean id="MessageDao" class="com.my.diseaseControl.dao.MessageDao"> <!-- 컨트롤러의 @Resource(name="UserDao") -->
+       	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>    
     
 </beans>
