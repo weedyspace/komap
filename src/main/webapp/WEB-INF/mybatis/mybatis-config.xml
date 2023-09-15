@@ -17,7 +17,7 @@
 
 	<!-- VO 등록 --> 
 	<typeAliases> 
-		<typeAlias alias="User" type="com.my.komap.vo.User" /> <!--alias="User"로 인해서 user.xml에서 returntype=User를 쓸수있게 됨 -->
+		<typeAlias alias="User" type="com.my.komap.vo.User" /> <!--alias="User"로 인해서 user.xml에서 resurtType=User를 쓸수있게 됨 -->
 		<typeAlias alias="Board" type="com.my.komap.vo.Board" />
 		<typeAlias alias="Reply" type="com.my.komap.vo.Reply" />
 		<typeAlias alias="ReReply" type="com.my.komap.vo.ReReply" />

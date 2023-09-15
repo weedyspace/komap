@@ -17,7 +17,7 @@ $(document).ready(function() { //jquery방식
 		} else { //이메일 비번 모두 입력시
 			$.ajax({
 				url: './checkWhenLogin',
-				type: 'get',
+				type: 'GET',
 				data: {
 					email: email,
 					password: password,

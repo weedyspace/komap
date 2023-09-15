@@ -203,7 +203,7 @@ $(document).ready(function() {
 		  
 		
 		
-		//받아온 암호암폐기호를 이미지로 변환시키기			        
+		//받아온 암호암폐 기호를 이미지로 변환시키기			        
 		if(position.bitcoin == 'btc') {
 			bitcoin = '<i class="fa-brands fa-bitcoin" style="color:orange; font-size:18.5px; margin-bottom:-6.5px; margin-right:2px;"></i>'
 			//bitcoin = (position.bitcoin).replace('btc', '<img class="coinImage" src="./resources/images/BTC.svg" style="width:18px; height:18px;/>');
@@ -356,7 +356,7 @@ $(document).ready(function() {
 				
 				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
 				var iwContent = '<div class="box-title re">' +
-									'<div><i class="fa-solid fa-map-location-dot"></i><span style="margin-top:10px;">도로명주소<span></div>' + '<input class="business address" maxlength="30" value="' +position.address+ '"></input>' +
+									'<div><i class="fa-solid fa-map-location-dot"></i><span style="margin-top:10px;">도로명주소<span></div>' + '<input class="business address" maxlength="30" value="' +address+ '"></input>' +
 								'</div>' +
 								'<div>' +
 									'<div class="box-title re">' +
@@ -413,7 +413,7 @@ $(document).ready(function() {
 									'</div>' +							
 								'</div>'				 
 				,
-				    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+				    iwRemoveable = true; // removeable 속성을 true 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 				
 				
 				

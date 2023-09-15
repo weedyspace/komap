@@ -164,20 +164,25 @@ public class UserController {
 	}
 	
 	
+	
 	@RequestMapping(value="/checkWhenLogin", method=RequestMethod.GET)
 	public @ResponseBody User login(
 				@RequestParam(value="email") String email,
 				@RequestParam(value="password") String password,
 				HttpSession session
 			) {
+		
 		User user = new User();
 		user.setEmail(email);
 		user.setPassword(password);
 		
 		User resultUser = userDao.selectUserByEmailAndPassword(user);
-		
 		if(resultUser != null) {  //로그인 성공시
 			session.setAttribute("loginUser", resultUser);
+			System.out.println("resultUser: " + resultUser);
+			System.out.println("resultUser.id: " + resultUser.getId());
+		} else {
+			System.out.println("!!!");
 		}
 		
 		return resultUser;

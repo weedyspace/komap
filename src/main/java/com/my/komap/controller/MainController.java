@@ -39,6 +39,9 @@ public class MainController {
 	private MapInfoDao mapInfoDao;	
 	
 	
+	
+	
+	
 	@RequestMapping(value="/test", method=RequestMethod.GET)
 	public String fafsdfasdfas(
 
@@ -63,7 +66,7 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/intro", method=RequestMethod.GET)
-	public String intro(Model model, HttpSession session) {
+	public String introduce(Model model, HttpSession session) {
 		
 		User loginUser = (User) session.getAttribute("loginUser");
 		model.addAttribute("loginUser", loginUser);

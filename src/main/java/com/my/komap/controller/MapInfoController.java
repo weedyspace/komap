@@ -37,7 +37,7 @@ public class MapInfoController {
 	@RequestMapping(value="/address_information", method=RequestMethod.GET)
 	public @ResponseBody String address_information(
 				@RequestParam(value="id") String id,
-			    @RequestParam(value="lat") float lat, //소수점
+			    @RequestParam(value="lat") float lat,
 			    @RequestParam(value="lng") float lng,
 			    @RequestParam(value="address") String address,
 			    @RequestParam(value="detail_address") String detail_address,

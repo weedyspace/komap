@@ -5,7 +5,6 @@ public class User {
 	private String id = null;
 	private String email = null;
 	private String password = null;
-	//private String user_image = null;
 	private String user_image = null;
 	private String reg_date = null;
 	
