@@ -1,0 +1,100 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="adminAccount">
+
+	<select id="getAll" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable`
+	</select>
+	
+	<select id="selectAdminAccount" parameterType="AdminAccount" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE AdminID = #{AdminID}
+	</select>	
+		
+
+	<select id="insertAdminAccount" parameterType="AdminAccount">
+		INSERT INTO `AdminAccountTable`
+		(AdminID, Password, Salt_key, Sha_256_pwd_salt, Name, Position, PhoneNumber, Email, Type, AccountCreationDeletionAbility, Date)
+		VALUES
+		(#{AdminID}, #{Password}, #{Salt_key}, #{Sha_256_pwd_salt}, #{Name}, #{Position}, #{PhoneNumber}, #{Email}, #{Type}, #{AccountCreationDeletionAbility}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</select>
+	
+	<select id="updateAdminAccount" parameterType="AdminAccount">
+		UPDATE `AdminAccountTable`
+		SET Password=#{Password}, Sha_256_pwd_salt=#{sha_256_pwd_salt}, Name=#{Name}, Position=#{Position}, PhoneNumber=#{PhoneNumber}, Email=#{Email}, Type=#{Type}, AccountCreationDeletionAbility=#{AccountCreationDeletionAbility}
+		WHERE AdminID=#{AdminID}
+	</select>		
+
+
+	<delete id="deletePilotAccount" parameterType="AdminAccount">
+		DELETE FROM `AdminAccountTable`
+		WHERE AdminID = #{AdminID} AND Name = #{Name}
+	</delete>	
+	
+	
+	<!-- login -->
+	<select id="selectAdminAccountByAdminIDAndPassword" parameterType="AdminAccount" resultType="AdminAccount"> 
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE AdminID = #{AdminID} AND Password = #{Password}
+	</select>	
+	
+	
+    <!-- 프로젝트로부터 일치하는 해당 라이센스번호와 ongoing인 컬럼들을 모두 가져오기  -->
+	<select id="getAllprojectInfo_adminInfo_byLicenseNumber" parameterType="String" resultType="Project">
+		SELECT *
+		FROM `ProjectTable`
+		WHERE LicenseNumber=#{LicenseNumber} AND Status="ongoing"
+	</select>	
+	
+	
+	<select id="getAdminInfoByIndex" parameterType="int" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE adminAccountIndex = #{adminAccountIndex}		
+    </select>
+    
+    
+	<select id="getAdminAccountByProjectID" parameterType="String" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE AdminID = #{AdminID}		
+    </select>    
+    
+    
+   	<select id="getAdminAccountByPhoneNumber" parameterType="String" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE PhoneNumber = #{PhoneNumber}		
+    </select> 
+    
+    
+   	<select id="getAdminAccountByName" parameterType="String" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE Name = #{Name}		
+    </select> 
+    
+    
+   	<select id="getAdminAccountByPosition" parameterType="String" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE Position = #{Position}		
+    </select>    
+    
+    
+   	<select id="getAdminAccountByType" parameterType="String" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE Type = #{Type}		
+    </select>  
+    
+    
+   	<select id="getAdminAccountByAccountCreationDeletionAbility" parameterType="Boolean" resultType="AdminAccount">
+		SELECT *
+		FROM `AdminAccountTable` 
+		WHERE AccountCreationDeletionAbility = #{AccountCreationDeletionAbility}		
+    </select>    
+    
+</mapper>

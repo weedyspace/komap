@@ -1,0 +1,28 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="workImageData">
+
+	<select id="insertWorkImageData" parameterType="WorkImageData">	
+		INSERT INTO `WorkImageDataTable`
+		(ProjectID, ImageUrl, ImageType, Date)
+		VALUES
+		(#{ProjectID}, #{ImageUrl}, #{ImageType}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</select>
+	
+	<select id="getAll" resultType="WorkImageData">	
+		SELECT *
+		FROM `WorkImageDataTable`
+	</select>	
+	
+	<select id="getWorkImageDataByProjectID" parameterType="int" resultType="WorkImageData">	
+		SELECT *
+		FROM `WorkImageDataTable`
+		WHERE ProjectID = #{ProjectID} 
+	</select>	
+
+	<select id="getWorkImageDataByImageType" parameterType="String" resultType="WorkImageData">	
+		SELECT *
+		FROM `WorkImageDataTable`
+		WHERE ImageType = #{ImageType} 
+	</select>
+
+</mapper>

@@ -1,0 +1,41 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="log">
+
+	<select id="insertLog" parameterType="Log">
+		INSERT INTO `LogTable`
+		(LogContent, ActionType, Activator, Responder, OccuredTime)
+		VALUES
+		(#{LogContent}, #{ActionType}, #{Activator}, #{Responder}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</select>
+	
+	<select id="getAll" resultType="Log">
+		SELECT *
+		FROM `LogTable`
+	</select>	
+	
+	<select id="getLogByActionType" parameterType="String" resultType="Log">
+		SELECT *
+		FROM `LogTable`
+		WHERE ActionType = #{ActionType} 
+	</select>	
+	
+	<select id="getLogByActivtor" parameterType="String" resultType="Log">
+		SELECT *
+		FROM `LogTable`
+		WHERE Activator = #{Activator} 
+	</select>	
+	
+	<select id="getLogByResponder" parameterType="String" resultType="Log">
+		SELECT *
+		FROM `LogTable`
+		WHERE Responder = #{Responder} 
+	</select>	
+	
+	<select id="messageFromActivatorToResponder" parameterType="Log">
+		INSERT INTO `LogTable`
+		(LogContent, ActionType, Activator, Responder, OccuredTime)
+		VALUES
+		(#{LogContent}, #{ActionType}, #{Activator}, #{Responder}, DATE_ADD(NOW(), INTERVAL 9 HOUR))
+	</select>		
+
+</mapper>

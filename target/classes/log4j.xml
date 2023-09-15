@@ -11,12 +11,12 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.my.komap">
+	<logger name="com.my.diseaseControl">
 		<level value="info" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
-	<logger name="org.springframework.core">
+	<logger name="org.springframework.core">S
 		<level value="info" />
 	</logger>
 	
